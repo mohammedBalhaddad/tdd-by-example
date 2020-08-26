@@ -6,7 +6,7 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 class Dollar {
-    int amount ;
+    private int amount ;
 
     Dollar times (int times){
         return new Dollar(times * amount);
