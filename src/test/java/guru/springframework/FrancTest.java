@@ -12,34 +12,41 @@ class FrancTest {
     @Test
     void testFrancMultiplication(){
         // positive Multiplication
-        Franc franc = new Franc(5);
-        Franc product = franc.times(2);
-        assertEquals(new Franc(10),product);
+        Money franc =  Money.franc(5);
+        Money product = franc.times(2);
+        assertEquals( Money.franc(10),product);
 
         // negative multiplication
-        franc = new Franc(5);
+        franc = Money.franc(5);
         product = franc.times(-2);
-        assertEquals(new Franc(-10), product);
+        assertEquals(Money.franc(-10), product);
 
         // return new object , does not change the value of amount ( Immutability )
-        franc = new Franc(10);
-        Franc product_1 = franc.times(3);
-        assertEquals(new Franc(30),product_1);
-        Franc product_2 = franc.times(2);
-        assertEquals(new Franc(20),product_2);
+        franc =  Money.franc(10);
+        Money product_1 = franc.times(3);
+        assertEquals( Money.franc(30),product_1);
+        Money product_2 = franc.times(2);
+        assertEquals( Money.franc(20),product_2);
 
     }
 
     @Test
     void testFrancEquality(){
         // Equality
-        Franc franc_1 = new Franc(5);
-        Franc franc_2 = new Franc(5);
+        Money franc_1 =  Money.franc(5);
+        Money franc_2 =  Money.franc(5);
         assertEquals(franc_1,franc_2);
 
         // Non-Equality
-        franc_1 = new Franc(5);
-        franc_2 = new Franc(10);
+        franc_1 =  Money.franc(5);
+        franc_2 = Money.franc(10);
         assertNotEquals(franc_1,franc_2);
     }
+
+    @Test
+    void testFrancCurrency(){
+        Money franc = Money.franc(5);
+        assertEquals("CHF",franc.currency());
+    }
+
 }

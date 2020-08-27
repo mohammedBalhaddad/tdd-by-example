@@ -1,14 +1,12 @@
 package guru.springframework;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+class Franc extends Money {
 
-@AllArgsConstructor
-@Data
-class Franc {
-    int amount;
+    Franc(int amount , String currency){
+        super(amount,currency);
+    }
 
-    Franc times(int times){
-        return new Franc(amount * times);
+    Money times(int times){
+        return Money.franc(times * amount);
     }
 }

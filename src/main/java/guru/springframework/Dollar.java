@@ -1,14 +1,12 @@
 package guru.springframework;
 
-import lombok.*;
+class Dollar extends Money{
 
+    Dollar(int amount,String currency){
+        super(amount,currency);
+    }
 
-@AllArgsConstructor
-@Data
-class Dollar {
-    private int amount ;
-
-    Dollar times (int times){
-        return new Dollar(times * amount);
+    Money times (int times){
+        return Money.dollar(amount * times);
     }
 }
